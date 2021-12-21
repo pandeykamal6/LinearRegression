@@ -22,7 +22,8 @@ def result():
     popstat=request.form['LSTAT']
     reg_mod=pickle.load(open('LinearRegression.pickle','rb'))
     result=reg_mod.predict([[crime,zone,indus,charles,nox,rm,age,dis,rad,tax,ratio,black,popstat]])
-    return 'The price of the house you are looking in boston area is:'+str(result)
 
+    return 'The price of the house you are looking in boston area is:'+"$"+str(result)[1:-1]
+   
 if __name__=='__main__':
     application.run(debug=True)
